@@ -1,0 +1,9 @@
+#!/usr/bin/python
+ips = {}
+
+fh = open("/var/log/httpd/access_log", "r").readlines()
+for line in fh:
+    ip = line.split(" ")[0]
+    if 6 < len(ip) <=15:
+        ips[ip] = ips.get(ip, 0) + 1
+print ips
